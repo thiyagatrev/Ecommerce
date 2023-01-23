@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="total_columns">12</integer>
+    <integer name="column_1">1</integer>
+    <integer name="column_2">2</integer>
+    <integer name="column_3">3</integer>
+    <integer name="column_4">4</integer>
+    <integer name="column_5">5</integer>
+    <integer name="column_6">6</integer>
+    <integer name="column_7">7</integer>
+    <integer name="column_8">8</integer>
+    <integer name="column_9">9</integer>
+    <integer name="input_fields_column">6</integer>
+    <integer name="login_button_column">3</integer>
+    <integer name="image_column_width">4</integer>
+</resources>

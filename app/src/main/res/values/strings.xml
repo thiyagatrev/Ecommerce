@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ecommerce</string>
+    <string name="login">login</string>
+    <string name="forgot_passcode">Forgot Passcode?</string>
+    <string name="fetching_the_list">"Fetching the List"</string>
+    <string name="rewards">Click here to join us to get more rewards</string>
+    <string name="msg_no_internet">No internet</string>
+    <string name="userName">UserName</string>
+    <string name="name">Name</string>
+    <string name="dob">Date of birth</string>
+    <string name="address">Address</string>
+    <string name="walletBalance">walletBalance</string>
+    <string name="price">Price</string>
+    <string name="reward_toast">Thank you for joining our rewards program</string>
+    <string name="brand">Brand Name</string>
+    <string name="product_desc">Product Description</string>
+</resources>

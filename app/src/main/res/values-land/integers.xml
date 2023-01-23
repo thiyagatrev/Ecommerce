@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="input_fields_column">4</integer>
+    <integer name="login_button_column">2</integer>
+    <integer name="image_column_width">2</integer>
+
+</resources>

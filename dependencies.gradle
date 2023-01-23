@@ -1,0 +1,160 @@
+String kotlinVersion = '1.3.71'
+String okHttpVersion = "4.10.0"
+String retrofitVersion = "2.9.0"
+String coroutine_call_adapter = "0.9.2"
+def koinVersion = "2.2.2"
+def roomVersion = "2.3.0"
+def compose_version = '1.2.0'
+def lifecycle_version = "2.4.0"
+def accompanistVersion = "0.28.0"
+
+
+def dependencyGroup(Closure closure) {
+    closure.delegate = dependencies
+    return closure
+}
+
+def AndroidArchitecture = dependencyGroup {
+    api 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    api 'androidx.lifecycle:lifecycle-reactivestreams-ktx:2.1.0'
+    api 'androidx.arch.core:core-testing:2.1.0'
+}
+
+def AndroidSupport = dependencyGroup {
+    api "androidx.multidex:multidex:2.0.1"
+    api "androidx.appcompat:appcompat:1.3.1"
+    api "com.google.android.material:material:1.4.0"
+    api "androidx.cardview:cardview:1.0.0"
+    api "androidx.browser:browser:1.0.0"
+    api "androidx.recyclerview:recyclerview:1.0.0"
+    api "androidx.legacy:legacy-support-v4:1.0.0"
+    api "androidx.mediarouter:mediarouter:1.1.0"
+    api 'androidx.constraintlayout:constraintlayout:2.1.0'
+    api 'androidx.core:core-ktx:1.7.0'
+    api 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    api "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+}
+
+def AndroidCompose = dependencyGroup {
+    api 'androidx.activity:activity-compose:1.3.1'
+    api "androidx.compose.ui:ui:$compose_version"
+    api "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    api 'androidx.compose.material3:material3:1.0.0-alpha11'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+}
+
+def Accompanist = dependencyGroup {
+    api "com.google.accompanist:accompanist-permissions:$accompanistVersion"
+    api "com.google.accompanist:accompanist-insets:$accompanistVersion"
+    api "com.google.accompanist:accompanist-pager:$accompanistVersion"
+    api "com.google.accompanist:accompanist-placeholder:$accompanistVersion"
+    api "com.google.accompanist:accompanist-flowlayout:$accompanistVersion"
+    api "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
+    api "com.google.accompanist:accompanist-navigation-animation:$accompanistVersion"
+}
+
+def AndroidComposeFoundation = dependencyGroup {
+    api "androidx.compose.foundation:foundation:1.3.1"
+    api "androidx.compose.runtime:runtime:1.3.1"
+}
+
+
+def FacebookDebugger = dependencyGroup {
+    api 'com.facebook.stetho:stetho:1.6.0'
+    api 'com.facebook.stetho:stetho-okhttp3:1.6.0'
+    api 'com.facebook.stetho:stetho-urlconnection:1.6.0'
+}
+
+
+def Glide = dependencyGroup {
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    api 'com.github.bumptech.glide:annotations:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    api 'com.github.bumptech.glide:okhttp3-integration:4.11.0'
+    api "com.github.bumptech.glide:compose:1.0.0-alpha.1"
+
+}
+
+def Hilt = dependencyGroup {
+    api 'com.google.dagger:hilt-android:2.44.2'
+    kapt "com.google.dagger:hilt-compiler:2.44.2"
+    api "androidx.navigation:navigation-compose:2.5.2"
+}
+
+
+def Koin = dependencyGroup {
+    api "org.koin:koin-core:$koinVersion"
+    api "org.koin:koin-android:$koinVersion"
+    api("org.koin:koin-androidx-viewmodel:$koinVersion") {
+        exclude group: 'androidx.activity', module: 'activity'
+    }
+}
+
+
+def Kotlin = dependencyGroup {
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+}
+
+
+def ReactiveX = dependencyGroup {
+    api 'io.reactivex.rxjava2:rxjava:2.1.5'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+}
+
+def Retrofit = dependencyGroup {
+    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    api 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    api('com.squareup.retrofit2:converter-simplexml:2.1.0') {
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+        exclude group: 'xpp3', module: 'xpp3'
+    }
+
+    api "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    api 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    api 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+}
+
+
+def KotlinCoroutine = dependencyGroup {
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7'
+}
+
+def encryptedPrefs = dependencyGroup {
+    api "androidx.security:security-crypto:1.0.0"
+    api "androidx.security:security-identity-credential:1.0.0-alpha02"
+
+}
+
+def Room = dependencyGroup {
+    api "androidx.room:room-runtime:$roomVersion"
+    api "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+}
+ext.kotlinVersion = kotlinVersion
+ext.AndroidArchitecture = AndroidArchitecture
+ext.AndroidSupport = AndroidSupport
+ext.AndroidCompose = AndroidCompose
+ext.AndroidComposeFoundation = AndroidComposeFoundation
+ext.Accompanist = Accompanist
+ext.FacebookDebugger = FacebookDebugger
+ext.Glide = Glide
+ext.Hilt = Hilt
+ext.Koin = Koin
+ext.Kotlin = Kotlin
+ext.ReactiveX = ReactiveX
+ext.Retrofit = Retrofit
+ext.KotlinCoroutine = KotlinCoroutine
+ext.encryptedPrefs = encryptedPrefs
+ext.Room = Room
+
